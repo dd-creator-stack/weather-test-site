@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "070253b4b264ceb416276237b774ad47";
 
 function getWeather() {
   const city = document.getElementById("cityInput").value;
@@ -16,10 +16,12 @@ function getWeather() {
     .then(data => {
       if (data.cod !== 200) {
         resultDiv.innerText = "City not found";
+        console.log(data);
         return;
       }
 
       resultDiv.innerHTML = `
+        <p>City: ${data.name}</p>
         <p>Temperature: ${data.main.temp} °C</p>
         <p>Weather: ${data.weather[0].description}</p>
       `;
